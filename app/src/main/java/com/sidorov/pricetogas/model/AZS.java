@@ -7,8 +7,8 @@ public class AZS extends HashMap<String, String>{
      public static final String NAME = "name";
      public static final String PRICE = "price";
      public static final String TELEPHONE = "telephone";
-    public static final String ADDRESS = "address";
-    public static final String MODE = "mode";
+     public static final String ADDRESS = "address";
+     public static final String MODE = "mode";
 
     // Конструктор с параметрами
     public AZS(String name, String price, String telNumber, String address, String mode) {
@@ -25,15 +25,15 @@ public class AZS extends HashMap<String, String>{
     }
 
     public String getNAME() {
-        return NAME;
+        return get(AZS.NAME);
     }
 
     public String getPRICE() {
-        return PRICE;
+        return get(AZS.PRICE);
     }
 
     public String getAddress() {
-        return ADDRESS;
+        return get(AZS.ADDRESS);
     }
 
 }

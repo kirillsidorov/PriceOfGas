@@ -26,7 +26,7 @@ public class Main2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        TextView textView = (TextView) findViewById(R.id.activity_two);
+        TextView textView = (TextView) findViewById(R.id.telephone);
         TextView textViewAZS = (TextView) findViewById(R.id.name_azs);
         TextView textViewAddress = (TextView) findViewById(R.id.address);
 
@@ -68,8 +68,8 @@ public class Main2Activity extends AppCompatActivity {
         final Matcher matcher = pat.matcher(fTelephone);
 
         if (textView != null) {
-            textView.setText(fName);
-            textViewAZS.setText(fTelephone);
+            textView.setText(fTelephone);
+            textViewAZS.setText(fName);
             textViewAddress.setText(fAddress);
         }
 
