@@ -1,6 +1,6 @@
 package com.sidorov.pricetogas.service;
 
-import com.sidorov.pricetogas.model.AZS;
+import com.sidorov.pricetogas.model.GasStation;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
@@ -11,8 +11,8 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
-public class AZSListTest {
-    AZSList azsList = new AZSList();
+public class GasStationListTest {
+    GasStationList gasStationList = new GasStationList();
     String html = "\n" +
                 "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n" +
                 "  \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n" +
@@ -689,15 +689,15 @@ public class AZSListTest {
 
     @Test
     public void listInitSuccessfully() throws ExecutionException, InterruptedException {
-        AZS azs = listInit(document).get(0);
-        Assert.assertEquals(azs.getNAME(), "АГЗС на въезде в г.Змиев");
-        Assert.assertEquals(azs.getTelephone(), "Телефон: (066) 720-55-89");
-        Assert.assertEquals(azs.getAddress(), "Адрес: Харьковская область, Змиевской район, г.Змиев, ул.Харьковская,79");
-        Assert.assertEquals(azs.getPRICE(), "12.00");
+        GasStation gasStation = listInit(document).get(0);
+        Assert.assertEquals(gasStation.getNAME(), "АГЗС на въезде в г.Змиев");
+        Assert.assertEquals(gasStation.getTelephone(), "Телефон: (066) 720-55-89");
+        Assert.assertEquals(gasStation.getAddress(), "Адрес: Харьковская область, Змиевской район, г.Змиев, ул.Харьковская,79");
+        Assert.assertEquals(gasStation.getPRICE(), "12.00");
     }
 
-    public ArrayList<AZS> listInit(org.jsoup.nodes.Document document){
-        ArrayList<AZS> list = new ArrayList<>();
+    public ArrayList<GasStation> listInit(org.jsoup.nodes.Document document){
+        ArrayList<GasStation> list = new ArrayList<>();
         Elements names = document.select(".views-field-title");
         Elements prices = document.select(".views-field-field-gas-value");
         Elements telephones = document.select(".views-field-field-phone-value");
@@ -709,7 +709,7 @@ public class AZSListTest {
             Element telephone = telephones.get(i);
             Element address = adresses.get(i);
             Element mode = modes.get(i);
-            list.add(new AZS(
+            list.add(new GasStation(
                     name.text(),
                     price.text(),
                     telephone.text(),

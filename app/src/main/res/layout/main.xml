@@ -15,4 +15,5 @@
           android:drawSelectorOnTop="false"
           android:background="@color/background_material_light"
           android:dividerHeight="2dp" />
+
 </android.support.v4.widget.SwipeRefreshLayout>

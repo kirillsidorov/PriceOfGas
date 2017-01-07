@@ -2,7 +2,7 @@ package com.sidorov.pricetogas.service;
 
 import android.os.AsyncTask;
 
-import com.sidorov.pricetogas.model.AZS;
+import com.sidorov.pricetogas.model.GasStation;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -12,23 +12,25 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class AZSList extends AsyncTask<Void, Void, ArrayList<AZS>> {
+public class GasStationList extends AsyncTask<Void, Void, ArrayList<GasStation>> {
     private static final String HTTP_QUERY_AGZS = "http://rodnik.ua/content/set-agzs";
 
+
+
     @Override
-    protected ArrayList<AZS> doInBackground(Void... params) {
-        ArrayList<AZS> listAZS = new ArrayList<>();
+    protected ArrayList<GasStation> doInBackground(Void... params) {
+        ArrayList<GasStation> listGasStation = new ArrayList<>();
         try {
             Document document = Jsoup.connect(HTTP_QUERY_AGZS).get();
-            listAZS = listInit(document);
+            listGasStation = listInit(document);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return listAZS;
+        return listGasStation;
     }
 
-    public ArrayList<AZS> listInit(Document document){
-        ArrayList<AZS> list = new ArrayList<>();
+    public ArrayList<GasStation> listInit(Document document){
+        ArrayList<GasStation> list = new ArrayList<>();
         Elements names = document.select(".views-field-title");
         Elements prices = document.select(".views-field-field-gas-value");
         Elements telephones = document.select(".views-field-field-phone-value");
@@ -40,12 +42,12 @@ public class AZSList extends AsyncTask<Void, Void, ArrayList<AZS>> {
             Element telephone = telephones.get(i);
             Element address = adresses.get(i);
             Element mode = modes.get(i);
-            list.add(new AZS(
-                    name.text(),
-                    price.text(),
-                    telephone.text(),
-                    address.text(),
-                    mode.text()
+            list.add(new GasStation(
+                                    name.text(),
+                                    price.text(),
+                                    telephone.text(),
+                                    address.text(),
+                                    mode.text()
             ));
         }
         return list;

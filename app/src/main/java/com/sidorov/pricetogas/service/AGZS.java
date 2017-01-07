@@ -10,6 +10,8 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.ArrayList;
 
+// TODO: 07.01.2017 delete
+
 public class AGZS extends AsyncTask<Void, Void, ArrayList<String>> {
     private static final String HTTP_QUERY_AGZS = "http://rodnik.ua/content/set-agzs";
 

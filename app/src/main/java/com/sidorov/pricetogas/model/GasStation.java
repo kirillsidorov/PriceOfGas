@@ -2,7 +2,7 @@ package com.sidorov.pricetogas.model;
 
 import java.util.HashMap;
 
-public class AZS extends HashMap<String, String>{
+public class GasStation extends HashMap<String, String>{
 
      public static final String NAME = "name";
      public static final String PRICE = "price";
@@ -11,7 +11,7 @@ public class AZS extends HashMap<String, String>{
      public static final String MODE = "mode";
 
     // Конструктор с параметрами
-    public AZS(String name, String price, String telNumber, String address, String mode) {
+    public GasStation(String name, String price, String telNumber, String address, String mode) {
         super();
         super.put(NAME, name);
         super.put(PRICE, price);
@@ -20,20 +20,24 @@ public class AZS extends HashMap<String, String>{
         super.put(MODE, mode);
     }
 
-    public String getTelephone(){
-        return get(AZS.TELEPHONE);
-    }
-
     public String getNAME() {
-        return get(AZS.NAME);
+        return get(GasStation.NAME);
     }
 
     public String getPRICE() {
-        return get(AZS.PRICE);
+        return get(GasStation.PRICE);
+    }
+
+    public String getTelephone(){
+        return get(GasStation.TELEPHONE);
     }
 
     public String getAddress() {
-        return get(AZS.ADDRESS);
+        return get(GasStation.ADDRESS);
+    }
+
+    public String getMode () {
+        return get(GasStation.MODE);
     }
 
 }

@@ -29,6 +29,7 @@ public class Main2Activity extends AppCompatActivity {
         TextView textView = (TextView) findViewById(R.id.telephone);
         TextView textViewAZS = (TextView) findViewById(R.id.name_azs);
         TextView textViewAddress = (TextView) findViewById(R.id.address);
+        TextView textViewMode = (TextView) findViewById(R.id.mode);
 
         fab_plus = (FloatingActionButton) findViewById(R.id.fab_plus);
         fab_tel = (FloatingActionButton) findViewById(R.id.fab_tel);
@@ -64,6 +65,7 @@ public class Main2Activity extends AppCompatActivity {
         final String fTelephone = intent.getStringExtra("telephone");
         final String fName = intent.getStringExtra("name");
         final String fAddress = intent.getStringExtra("address");
+        final String fMode = intent.getStringExtra("mode");
         Pattern pat = Pattern.compile("[0-9]?");
         final Matcher matcher = pat.matcher(fTelephone);
 
@@ -71,6 +73,7 @@ public class Main2Activity extends AppCompatActivity {
             textView.setText(fTelephone);
             textViewAZS.setText(fName);
             textViewAddress.setText(fAddress);
+            textViewMode.setText(fMode);
         }
 
         fab_tel.setOnClickListener(new View.OnClickListener() {
